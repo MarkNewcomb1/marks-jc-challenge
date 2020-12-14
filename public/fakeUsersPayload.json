@@ -1,0 +1,71 @@
+{
+    "totalCount": 2,
+    "results": [
+        {
+            "account_locked": false,
+            "activated": false,
+            "addresses": [],
+            "allow_public_key": true,
+            "attributes": [],
+            "email": "johndoe111@example.com",
+            "enable_managed_uid": false,
+            "enable_user_portal_multifactor": false,
+            "externally_managed": false,
+            "firstname": "John",
+            "lastname": "Doe",
+            "ldap_binding_user": false,
+            "mfa": {
+                "exclusion": false,
+                "configured": false
+            },
+            "password_never_expires": false,
+            "passwordless_sudo": false,
+            "phoneNumbers": [],
+            "samba_service_user": false,
+            "ssh_keys": [],
+            "sudo": false,
+            "suspended": false,
+            "unix_guid": 5003,
+            "unix_uid": 5003,
+            "username": "johndoe",
+            "created": "2020-12-12T21:00:42.101Z",
+            "password_expired": false,
+            "totp_enabled": false,
+            "_id": "5fd52f7a7f4e5d57a1cd00dc",
+            "id": "5fd52f7a7f4e5d57a1cd00dc"
+        },
+        {
+            "account_locked": false,
+            "activated": true,
+            "addresses": [],
+            "allow_public_key": true,
+            "attributes": [],
+            "email": "mark.newcomb@marknewcomb1.com",
+            "enable_managed_uid": false,
+            "enable_user_portal_multifactor": false,
+            "externally_managed": false,
+            "firstname": "Mark",
+            "lastname": "Newcomb",
+            "ldap_binding_user": false,
+            "mfa": {
+                "exclusion": false,
+                "configured": false
+            },
+            "password_never_expires": false,
+            "passwordless_sudo": false,
+            "phoneNumbers": [],
+            "samba_service_user": false,
+            "ssh_keys": [],
+            "sudo": false,
+            "suspended": false,
+            "unix_guid": 5001,
+            "unix_uid": 5001,
+            "username": "markn",
+            "created": "2020-12-12T19:06:50.755Z",
+            "password_expired": false,
+            "totp_enabled": false,
+            "_id": "5fd514ca8fc0b40cdd7a0e4e",
+            "id": "5fd514ca8fc0b40cdd7a0e4e"
+        }
+    ]
+}
