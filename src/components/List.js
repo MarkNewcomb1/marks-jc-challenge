@@ -1,20 +1,24 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-function List() {
+import { userService } from '../services/userService';
 
-    const [data, setData] = useState([]);
-
-    const fetchData = useCallback(() => {
-        fetch('./fakeUsersPayload.json')
-            .then(response => response.json())
-            .then(results => {
-                setData(results.results);
-            })
-    })
+function List({ match }) {
+    const { path } = match;
+    const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        fetchData();
+        userService.getAll().then(response => setUsers(response.results));
     }, []);
+
+    function deleteUser(id) {
+        setUsers(users.map(user => {
+            if (user.id === id) { user.isDeleting = true; }
+            return user;
+        }));
+        userService.delete(id).then(() => {
+            setUsers(users => users.filter(user => user.id !== id));
+        });
+    }
 
     return (
         <div>
@@ -31,25 +35,30 @@ function List() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data && data.map(user =>
+                    {users && users.map(user =>
                         <tr key={user.id}>
                             <td>{user.firstname} {user.lastname}</td>
                             <td>{user.username}</td>
                             <td>{user.email}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
-                                <button className="btn btn-sm btn-danger btn-delete-user"><span>Delete</span></button>
+                                <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>
+                                    {user.isDeleting 
+                                        ? <span className="spinner-border spinner-border-sm"></span>
+                                        : <span>Delete</span>
+                                    }
+                                </button>
                             </td>
                         </tr>
                     )}
-                    {!data &&
+                    {!users &&
                         <tr>
                             <td colSpan="4" className="text-center">
                                 <div className="spinner-border spinner-border-lg align-center"></div>
                             </td>
                         </tr>
                     }
-                    {data && !data.length &&
+                    {users && !users.length &&
                         <tr>
                             <td colSpan="4" className="text-center">
                                 <div className="p-2">No Users. Add Some!</div>
