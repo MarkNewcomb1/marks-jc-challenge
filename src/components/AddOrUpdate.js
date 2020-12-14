@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { superstructResolver } from '@hookform/resolvers/superstruct';
-import { struct } from 'superstruct';
+import { define } from 'superstruct';
 import '../App.css';
 
 import { userService } from '../services/userService';
@@ -11,7 +11,7 @@ function AddOrUpdate({ history, match }) {
     const { id } = match.params;
     const isAddMode = !id;
 
-    const schema = struct({
+    const schema = define({
         firstname: 'string',
         lastname: 'string',
         username: 'string',

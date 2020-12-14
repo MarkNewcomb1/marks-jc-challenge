@@ -22,7 +22,6 @@ function List({ match }) {
 
     return (
         <div>
-            {/* <p>{JSON.stringify(data)}</p> */}
             <h1>Users</h1>
             <Link to='/add' className="btn btn-sm btn-success mb-2">Add User</Link>
             <table className="table table-striped">
