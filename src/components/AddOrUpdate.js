@@ -68,7 +68,7 @@ function AddOrUpdate({ history, match }) {
                     <input name="lastname" type="text" ref={register} className="form-control" required />
                 </div>
                 <div className="form-group col-5">
-                    <label>Username</label>
+                    <label>Username <span className="text-muted">username must start with a letter, be 30 characters or less, and contain only valid Unix Characters (letters, numbers, '-', '.', and '_')</span></label>
                     <input name="username" type="text" ref={register} className="form-control" required />
                 </div>
             </div>
