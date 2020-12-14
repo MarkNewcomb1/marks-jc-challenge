@@ -1,1 +1,8 @@
 /* some global stuff */
+
+.form-group label:after {
+    content: "*";
+    color: red;
+    position: absolute;
+    margin-left: 2px;
+}

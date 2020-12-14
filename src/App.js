@@ -1,7 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import { List } from './components/List';
 import { AddOrUpdate } from './components/AddOrUpdate';
-import './App.css';
 
 function App() {
 
